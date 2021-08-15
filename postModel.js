@@ -1,11 +1,15 @@
 const mongoose = require("mongoose");
 const schema = mongoose.Schema(
     {
+       productId: 'String', 
        productName:'String',
-       productId: 'String',
-       productAvailability:'String'
+       qtyperUnit: 'String',
+       unitPrice: 'String',
+       unitStock : 'String',
+       discontinued :'Boolean',
+       catagoryId :'String',
+       catagoryName : 'String'       
     },
-    {timestamps: true}
 )
 
 const Post = mongoose.model("Post",schema);
