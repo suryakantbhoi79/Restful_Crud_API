@@ -9,10 +9,10 @@ app.use(express.json());
 //CRUD APPLICATIONS
 
 app.post('/',async(req,res)=>{
-    const {productName,productId,productAvailability}=req.body;
+    const {productId,productName,qtyperUnit,unitPrice,unitStock,discontinued,catagoryId,catagoryName}=req.body;
     
     try{
-        const newPost = await postModel.create({productName,productId,productAvailability});
+        const newPost = await postModel.create({productId,productName,qtyperUnit,unitPrice,unitStock,discontinued,catagoryId,catagoryName});
         res.json(newPost)
     }catch(error){
         res.status(500).send(error)
@@ -42,9 +42,9 @@ app.get('/:id',async(req,res)=>{
 
 app.put('/:id', async(req,res)=>{
     const {id} = req.params;
-    const {productName,productId,productAvailability} = req.body;
+    const {productId,productName,qtyperUnit,unitPrice,unitStock,discontinued,catagoryId,catagoryName} = req.body;
     try {
-        const post = await postModel.findByIdAndUpdate(id,{productName,productId,productAvailability});
+        const post = await postModel.findByIdAndUpdate(id,{productId,productName,qtyperUnit,unitPrice,unitStock,discontinued,catagoryId,catagoryName});
         res.json(post)
     } catch (error) {
         res.status(500).send(error)
